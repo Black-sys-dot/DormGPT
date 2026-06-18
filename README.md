@@ -4,6 +4,12 @@ DormGPT is a Godot-based 2D game where you manage a GPU cluster in a dorm room t
 
 This game was **made by codex for their game jam**.
 
+## Screenshots
+
+![Dorm room with computer cluster](assets/screenshots/screenshot_1.png)
+
+![GPU cluster monitoring console](assets/screenshots/screenshot_2.png)
+
 ## Features
 
 - **GPU Training & Management**: Hire, upgrade, and optimize your GPUs to train models of increasing sizes and capacities.
