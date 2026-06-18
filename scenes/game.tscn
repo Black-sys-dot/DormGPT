@@ -1,0 +1,558 @@
+[gd_scene format=3 uid="uid://b6e56umdy1nhw"]
+
+[ext_resource type="Script" uid="uid://idvo5qwcodn5" path="res://scripts/game_root.gd" id="1_root_script"]
+[ext_resource type="PackedScene" uid="uid://nwqe0nex8gd" path="res://scenes/player.tscn" id="2_player_scene"]
+[ext_resource type="Texture2D" uid="uid://cic2rotcwqrxc" path="res://assets/game_assets/empty_room.png" id="3_empty_room"]
+[ext_resource type="Texture2D" uid="uid://jerckytk44to" path="res://assets/game_assets/carpet.png" id="4_carpet"]
+[ext_resource type="Texture2D" uid="uid://dhny8wkmull04" path="res://assets/game_assets/window.png" id="5_window"]
+[ext_resource type="Texture2D" uid="uid://cgppathjnm66k" path="res://assets/game_assets/bookshelf.png" id="6_bookshelf"]
+[ext_resource type="Texture2D" uid="uid://cab1gv8fmijxa" path="res://assets/game_assets/gpu.png" id="7_gpu"]
+[ext_resource type="PackedScene" uid="uid://ds055an7vabjb" path="res://scenes/dustbin.tscn" id="7_kvuet"]
+[ext_resource type="Texture2D" uid="uid://dm8d81atshsyv" path="res://assets/game_assets/bed.png" id="9_bed"]
+[ext_resource type="Texture2D" uid="uid://cgwvjupml3evy" path="res://assets/game_assets/table.png" id="10_table"]
+[ext_resource type="Texture2D" uid="uid://oex7lqrcby2a" path="res://assets/game_assets/laptop.png" id="11_laptop"]
+[ext_resource type="Script" uid="uid://dvi28lk1nyedl" path="res://scripts/interactable.gd" id="12_interactable"]
+[ext_resource type="Script" uid="uid://b7h1plufbipx1" path="res://scripts/game_ui.gd" id="13_ui_script"]
+[ext_resource type="Texture2D" uid="uid://di0hlnd8f48y3" path="res://assets/game_assets/laptop_level2.png" id="15_laptop_l2"]
+[ext_resource type="Texture2D" uid="uid://ccr2db6nxi5an" path="res://assets/game_assets/laptop_level3.png" id="16_laptop_l3"]
+[ext_resource type="Texture2D" uid="uid://dto0vyqgffd5d" path="res://assets/game_assets/laptop_level4.png" id="17_laptop_l4"]
+[ext_resource type="Texture2D" uid="uid://jsv8s11pce32" path="res://assets/game_assets/laptop_level5.png" id="18_laptop_l5"]
+[ext_resource type="Texture2D" uid="uid://bexjhhfmdulrw" path="res://assets/game_assets/gpu_level2.png" id="19_gpu_l2"]
+[ext_resource type="Texture2D" uid="uid://cpcw5q70chb6i" path="res://assets/game_assets/gpu_level3.png" id="20_gpu_l3"]
+[ext_resource type="Texture2D" uid="uid://d332xabc2dus2" path="res://assets/game_assets/gpu_level4.png" id="21_gpu_l4"]
+[ext_resource type="Texture2D" uid="uid://e5f1sgemyr72" path="res://assets/game_assets/gpu_level5.png" id="22_gpu_l5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpu0"]
+size = Vector2(160, 70)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpu0_interact"]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpu1"]
+size = Vector2(320.50342, 153.38751)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5newe"]
+radius = 236.47935
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpu2"]
+size = Vector2(390.85602, 286.3352)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpu2_interact"]
+radius = 251.05754
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpu3"]
+size = Vector2(355, 279.37546)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpu3_interact"]
+radius = 238.77837
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpu4"]
+size = Vector2(374.8314, 343.65234)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpu4_interact"]
+radius = 189.52113
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_l"]
+size = Vector2(100, 1536)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_r"]
+size = Vector2(100, 1536)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_t"]
+size = Vector2(2816, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_b"]
+size = Vector2(2816, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bed"]
+size = Vector2(386, 157)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_table"]
+size = Vector2(156.375, 268.9375)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_laptop"]
+radius = 113.43721
+
+[sub_resource type="LabelSettings" id="LabelSettings_hud"]
+font_size = 24
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popup"]
+bg_color = Color(0.180392, 0.176471, 0.211765, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.905882, 0.858824, 0.701961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 22
+font_color = Color(0.905882, 0.858824, 0.701961, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_body"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.105882, 0.105882, 0.133333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
+bg_color = Color(0.301961, 0.686275, 0.360784, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_status"]
+font_size = 14
+font_color = Color(0.666667, 0.654902, 0.713726, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.352941, 0.345098, 0.4, 1)
+border_width_bottom = 4
+border_color = Color(0.227451, 0.219608, 0.258824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.227451, 0.219608, 0.258824, 1)
+border_width_top = 4
+border_color = Color(0.14902, 0.145098, 0.172549, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.478431, 0.470588, 0.54902, 1)
+border_width_bottom = 4
+border_color = Color(0.294118, 0.286275, 0.341176, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
+bg_color = Color(0.180392, 0.176471, 0.211765, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="game" type="Node2D" unique_id=1005048013]
+script = ExtResource("1_root_script")
+
+[node name="ClearColorBackground" type="ColorRect" parent="." unique_id=303291400]
+offset_right = 2816.0
+offset_bottom = 1536.0
+color = Color(0.270588, 0.262745, 0.305882, 1)
+
+[node name="empty_room" type="Sprite2D" parent="." unique_id=483722911]
+scale = Vector2(4.15953, 4.1626)
+texture = ExtResource("3_empty_room")
+centered = false
+
+[node name="carpet" type="Sprite2D" parent="." unique_id=248760131]
+position = Vector2(880, 698)
+scale = Vector2(1.4446084, 1.3631432)
+texture = ExtResource("4_carpet")
+centered = false
+
+[node name="window" type="Sprite2D" parent="." unique_id=1600971834]
+position = Vector2(647.00006, 82)
+scale = Vector2(1.4874446, 1.3170731)
+texture = ExtResource("5_window")
+centered = false
+
+[node name="bookshelf" type="Sprite2D" parent="." unique_id=1694604362]
+position = Vector2(1275, 81)
+scale = Vector2(0.66321987, 0.80216795)
+texture = ExtResource("6_bookshelf")
+centered = false
+
+[node name="gpu_tiers" type="Node2D" parent="." unique_id=738865909]
+
+[node name="gpu_tier_0" type="Sprite2D" parent="gpu_tiers" unique_id=1170945306]
+visible = false
+position = Vector2(1313, 293)
+scale = Vector2(1.5273268, 1.6124659)
+texture = ExtResource("7_gpu")
+centered = false
+
+[node name="body" type="StaticBody2D" parent="gpu_tiers/gpu_tier_0" unique_id=1552862643]
+position = Vector2(417, 54)
+
+[node name="col" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_0/body" unique_id=2055702415]
+shape = SubResource("RectangleShape2D_gpu0")
+
+[node name="gpu_interactable" type="Area2D" parent="gpu_tiers/gpu_tier_0" unique_id=330560518]
+position = Vector2(60, 50)
+script = ExtResource("12_interactable")
+prompt_message = "[E] Upgrade GPU"
+prompt_offset = Vector2(0, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_0/gpu_interactable" unique_id=1623351832]
+position = Vector2(293.5589, 96.97986)
+shape = SubResource("CircleShape2D_gpu0_interact")
+
+[node name="gpu_tier_1" type="Sprite2D" parent="gpu_tiers" unique_id=1716030914]
+visible = false
+position = Vector2(1441, 323)
+scale = Vector2(0.89660245, 1.300813)
+texture = ExtResource("19_gpu_l2")
+centered = false
+
+[node name="body" type="StaticBody2D" parent="gpu_tiers/gpu_tier_1" unique_id=2063746401]
+position = Vector2(568, 44)
+
+[node name="col" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_1/body" unique_id=1927617457]
+position = Vector2(-56.067566, 85.91876)
+shape = SubResource("RectangleShape2D_gpu1")
+
+[node name="gpu_interactable" type="Area2D" parent="gpu_tiers/gpu_tier_1" unique_id=1455230355]
+position = Vector2(60, 50)
+script = ExtResource("12_interactable")
+prompt_message = "[E] Upgrade GPU"
+prompt_offset = Vector2(0, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_1/gpu_interactable" unique_id=706103589]
+position = Vector2(349.323, 64.543755)
+shape = SubResource("CircleShape2D_5newe")
+
+[node name="gpu_tier_2" type="Sprite2D" parent="gpu_tiers" unique_id=1220887168]
+visible = false
+position = Vector2(1406.9999, 361)
+scale = Vector2(0.9645495, 0.9945799)
+texture = ExtResource("20_gpu_l3")
+centered = false
+
+[node name="body" type="StaticBody2D" parent="gpu_tiers/gpu_tier_2" unique_id=1518725301]
+position = Vector2(565, 19)
+
+[node name="col" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_2/body" unique_id=300903854]
+position = Vector2(-215.61392, 32.277924)
+shape = SubResource("RectangleShape2D_gpu2")
+
+[node name="gpu_interactable" type="Area2D" parent="gpu_tiers/gpu_tier_2" unique_id=918165143]
+position = Vector2(60, 50)
+script = ExtResource("12_interactable")
+prompt_message = "[E] Upgrade GPU"
+prompt_offset = Vector2(0, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_2/gpu_interactable" unique_id=211101548]
+position = Vector2(286.27582, 12.337868)
+shape = SubResource("CircleShape2D_gpu2_interact")
+
+[node name="gpu_tier_3" type="Sprite2D" parent="gpu_tiers" unique_id=438494974]
+visible = false
+position = Vector2(1409, 11.000008)
+scale = Vector2(1.416667, 1.2681752)
+texture = ExtResource("21_gpu_l4")
+centered = false
+
+[node name="body" type="StaticBody2D" parent="gpu_tiers/gpu_tier_3" unique_id=412822491]
+position = Vector2(380, 290)
+
+[node name="col" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_3/body" unique_id=1503701530]
+position = Vector2(-125.176575, 0.96925354)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_gpu3")
+
+[node name="gpu_interactable" type="Area2D" parent="gpu_tiers/gpu_tier_3" unique_id=1834258311]
+position = Vector2(60, 50)
+script = ExtResource("12_interactable")
+prompt_message = "[E] Upgrade GPU"
+prompt_offset = Vector2(0, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_3/gpu_interactable" unique_id=1120259041]
+position = Vector2(167.29407, 270.93356)
+shape = SubResource("CircleShape2D_gpu3_interact")
+
+[node name="gpu_tier_4" type="Sprite2D" parent="gpu_tiers" unique_id=1810775604]
+visible = false
+position = Vector2(1229.0001, 336.00003)
+scale = Vector2(1.8541672, 0.8806228)
+texture = ExtResource("22_gpu_l5")
+centered = false
+
+[node name="body" type="StaticBody2D" parent="gpu_tiers/gpu_tier_4" unique_id=634452116]
+position = Vector2(388, 50)
+
+[node name="col" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_4/body" unique_id=1368185610]
+position = Vector2(-155.55066, 154.40085)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_gpu4")
+
+[node name="gpu_interactable" type="Area2D" parent="gpu_tiers/gpu_tier_4" unique_id=1876989339]
+position = Vector2(60, 50)
+script = ExtResource("12_interactable")
+prompt_message = "[E] Upgrade GPU"
+prompt_offset = Vector2(0, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gpu_tiers/gpu_tier_4/gpu_interactable" unique_id=687735679]
+position = Vector2(157.34819, 238.43219)
+shape = SubResource("CircleShape2D_gpu4_interact")
+
+[node name="dustbin" parent="." unique_id=2082289044 instance=ExtResource("7_kvuet")]
+position = Vector2(1785, 1103)
+
+[node name="RoomWalls" type="StaticBody2D" parent="." unique_id=1672092392]
+
+[node name="CollisionShape2D_Left" type="CollisionShape2D" parent="RoomWalls" unique_id=253915269]
+position = Vector2(690, 768)
+shape = SubResource("RectangleShape2D_wall_l")
+
+[node name="CollisionShape2D_Right" type="CollisionShape2D" parent="RoomWalls" unique_id=1333831044]
+position = Vector2(2130, 768)
+shape = SubResource("RectangleShape2D_wall_r")
+
+[node name="CollisionShape2D_Top" type="CollisionShape2D" parent="RoomWalls" unique_id=1186463252]
+position = Vector2(1397, 262)
+shape = SubResource("RectangleShape2D_wall_t")
+
+[node name="CollisionShape2D_Bottom" type="CollisionShape2D" parent="RoomWalls" unique_id=542745200]
+position = Vector2(1408, 1480)
+shape = SubResource("RectangleShape2D_wall_b")
+
+[node name="ysort" type="Node2D" parent="." unique_id=1523918563]
+y_sort_enabled = true
+position = Vector2(1497, 812)
+
+[node name="bed" type="StaticBody2D" parent="ysort" unique_id=666511217]
+y_sort_enabled = true
+position = Vector2(1092, 1243)
+
+[node name="Sprite2D" type="Sprite2D" parent="ysort/bed" unique_id=860080425]
+position = Vector2(-1526, -768.9999)
+scale = Vector2(0.62359554, 0.64207643)
+texture = ExtResource("9_bed")
+region_enabled = true
+region_rect = Rect2(426, 335, 712, 366)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/bed" unique_id=865140619]
+position = Vector2(-1550, -766.5)
+shape = SubResource("RectangleShape2D_bed")
+
+[node name="table" type="StaticBody2D" parent="ysort" unique_id=401035643]
+y_sort_enabled = true
+position = Vector2(1899, 1057)
+
+[node name="Sprite2D" type="Sprite2D" parent="ysort/table" unique_id=195303660]
+position = Vector2(-1468, -895)
+scale = Vector2(0.6885522, 0.95)
+texture = ExtResource("10_table")
+region_enabled = true
+region_rect = Rect2(117, 45, 297, 375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/table" unique_id=1759712401]
+position = Vector2(-1469, -932.46875)
+shape = SubResource("RectangleShape2D_table")
+
+[node name="table_interactable" type="Area2D" parent="ysort" unique_id=1693233145]
+position = Vector2(431, 162)
+script = ExtResource("12_interactable")
+prompt_message = "[E] Laptop Setup"
+prompt_offset = Vector2(0, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/table_interactable" unique_id=1431459111]
+shape = SubResource("CircleShape2D_laptop")
+
+[node name="laptop_interactable" type="Area2D" parent="ysort/table_interactable" unique_id=1693233144]
+position = Vector2(1381, 593)
+script = ExtResource("12_interactable")
+prompt_message = "[E] Train Model"
+prompt_offset = Vector2(0, -70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/table_interactable/laptop_interactable" unique_id=1431459110]
+position = Vector2(-1383, -673)
+shape = SubResource("CircleShape2D_laptop")
+
+[node name="player" parent="ysort" unique_id=1666240075 instance=ExtResource("2_player_scene")]
+y_sort_enabled = true
+position = Vector2(-66, 78)
+scale = Vector2(4, 4)
+
+[node name="Camera2D" type="Camera2D" parent="ysort/player" unique_id=909005654]
+position = Vector2(-2, -11.75)
+zoom = Vector2(0.5, 0.5)
+limit_left = 732
+limit_top = 73
+limit_right = 2115
+limit_bottom = 1433
+editor_draw_limits = true
+
+[node name="laptop_tiers" type="Node2D" parent="." unique_id=1128761292]
+
+[node name="laptop_tier_0" type="Sprite2D" parent="laptop_tiers" unique_id=287524571]
+position = Vector2(1897, 880)
+scale = Vector2(0.32, 0.31)
+texture = ExtResource("11_laptop")
+
+[node name="laptop_tier_1" type="Sprite2D" parent="laptop_tiers" unique_id=1197633039]
+position = Vector2(1903.48, 882.755)
+scale = Vector2(0.24793108, 0.22024171)
+texture = ExtResource("15_laptop_l2")
+
+[node name="laptop_tier_2" type="Sprite2D" parent="laptop_tiers" unique_id=1387892306]
+position = Vector2(1909.98, 886.255)
+scale = Vector2(0.2759483, 0.23325273)
+texture = ExtResource("16_laptop_l3")
+
+[node name="laptop_tier_3" type="Sprite2D" parent="laptop_tiers" unique_id=1037696958]
+position = Vector2(1913.98, 889.755)
+scale = Vector2(0.2931895, 0.24626395)
+texture = ExtResource("17_laptop_l4")
+
+[node name="laptop_tier_4" type="Sprite2D" parent="laptop_tiers" unique_id=1287110836]
+position = Vector2(1930.76, 873.3775)
+scale = Vector2(0.3782761, 0.32945156)
+texture = ExtResource("18_laptop_l5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1525660164]
+
+[node name="GameUI" type="Control" parent="CanvasLayer" unique_id=880577692]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2275.0
+offset_top = -301.0
+offset_right = 2251.0
+offset_bottom = -251.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_ui_script")
+
+[node name="HUD" type="Control" parent="CanvasLayer/GameUI" unique_id=810990255]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/GameUI/HUD" unique_id=1923878]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 300.0
+offset_bottom = 70.0
+text = "Money: $100"
+label_settings = SubResource("LabelSettings_hud")
+
+[node name="LaptopPopup" type="Panel" parent="CanvasLayer/GameUI" unique_id=849004098]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -180.0
+offset_right = 302.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_popup")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/GameUI/LaptopPopup" unique_id=1970493070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 22.0
+offset_right = -25.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=153325255]
+layout_mode = 2
+text = "AI MODEL TRAINING"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=256171099]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=1700341346]
+layout_mode = 2
+text = "Current Balance: $100"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="CostLabel" type="Label" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=315634951]
+layout_mode = 2
+text = "Training Cost: $20"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=217653757]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=1683344270]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
+value = 50.0
+show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=2082224828]
+layout_mode = 2
+text = "System: Idle"
+label_settings = SubResource("LabelSettings_status")
+horizontal_alignment = 1
+
+[node name="Spacer3" type="Control" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=1328362068]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/GameUI/LaptopPopup/VBox" unique_id=211544090]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TrainButton" type="Button" parent="CanvasLayer/GameUI/LaptopPopup/VBox/HBox" unique_id=2112711583]
+custom_minimum_size = Vector2(130, 42)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+text = "Train Model"
+
+[node name="UpgradeLaptopButton" type="Button" parent="CanvasLayer/GameUI/LaptopPopup/VBox/HBox" unique_id=987654321]
+custom_minimum_size = Vector2(130, 42)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+text = "Upgrade Laptop"
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/GameUI/LaptopPopup/VBox/HBox" unique_id=1171841527]
+custom_minimum_size = Vector2(130, 42)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Close"
+
+[connection signal="interacted" from="ysort/table_interactable" to="." method="_on_table_interacted"]
+[connection signal="interacted" from="ysort/table_interactable/laptop_interactable" to="." method="_on_laptop_interacted"]

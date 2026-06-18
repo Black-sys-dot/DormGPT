@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ds055an7vabjb"]
+
+[ext_resource type="Texture2D" uid="uid://bl36a5j42cki7" path="res://assets/game_assets/dustbin.png" id="1_iv6r6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv6r6"]
+size = Vector2(131.34166, 228.40817)
+
+[node name="dustbin" type="Sprite2D" unique_id=2082289044]
+position = Vector2(-93.99999, -109)
+scale = Vector2(0.41949758, 0.398374)
+texture = ExtResource("1_iv6r6")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1751175275]
+position = Vector2(345.65155, 185.7551)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_iv6r6")
